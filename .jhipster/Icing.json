@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20230411191321",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "icing",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Icing",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cake",
+      "otherEntityRelationshipName": "icing",
+      "relationshipName": "cake",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

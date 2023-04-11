@@ -1,0 +1,32 @@
+{
+  "cakeOrderingApplicationApp": {
+    "cake": {
+      "home": {
+        "title": "Cakes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cake",
+        "createOrEditLabel": "Create or edit a Cake",
+        "notFound": "No Cakes found"
+      },
+      "created": "A new Cake is created with identifier {{ param }}",
+      "updated": "A Cake is updated with identifier {{ param }}",
+      "deleted": "A Cake is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cake {{ id }}?"
+      },
+      "detail": {
+        "title": "Cake"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "shape": "Shape",
+      "cakeSize": "Cake Size",
+      "order": "Order",
+      "flavor": "Flavor",
+      "color": "Color",
+      "icing": "Icing"
+    }
+  }
+}

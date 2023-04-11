@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cake">
+      <h2 data-cy="cakeDetailsHeading"><span jhiTranslate="cakeOrderingApplicationApp.cake.detail.title">Cake</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cake.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="cakeOrderingApplicationApp.cake.name">Name</span></dt>
+        <dd>
+          <span>{{ cake.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="cakeOrderingApplicationApp.cake.description">Description</span></dt>
+        <dd>
+          <span>{{ cake.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="cakeOrderingApplicationApp.cake.price">Price</span></dt>
+        <dd>
+          <span>{{ cake.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="cakeOrderingApplicationApp.cake.shape">Shape</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'cakeOrderingApplicationApp.Shape.' + cake.shape }}">{{ cake.shape }}</span>
+        </dd>
+        <dt><span jhiTranslate="cakeOrderingApplicationApp.cake.cakeSize">Cake Size</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'cakeOrderingApplicationApp.CakeSize.' + cake.cakeSize }}">{{ cake.cakeSize }}</span>
+        </dd>
+        <dt><span jhiTranslate="cakeOrderingApplicationApp.cake.flavor">Flavor</span></dt>
+        <dd>
+          <span *ngFor="let flavor of cake.flavors; let last = last">
+            <a [routerLink]="['/flavor', flavor.id, 'view']">{{ flavor.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="cakeOrderingApplicationApp.cake.color">Color</span></dt>
+        <dd>
+          <span *ngFor="let color of cake.colors; let last = last">
+            <a [routerLink]="['/color', color.id, 'view']">{{ color.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="cakeOrderingApplicationApp.cake.icing">Icing</span></dt>
+        <dd>
+          <div *ngIf="cake.icing">
+            <a [routerLink]="['/icing', cake.icing.id, 'view']">{{ cake.icing.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cake', cake.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "cakeOrderingApplicationApp": {
+    "Shape": {
+      "null": "",
+      "ROUND": "ROUND",
+      "SQUARE": "SQUARE",
+      "HEART": "HEART"
+    }
+  }
+}

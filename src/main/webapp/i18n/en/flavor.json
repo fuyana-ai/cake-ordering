@@ -1,0 +1,25 @@
+{
+  "cakeOrderingApplicationApp": {
+    "flavor": {
+      "home": {
+        "title": "Flavors",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Flavor",
+        "createOrEditLabel": "Create or edit a Flavor",
+        "notFound": "No Flavors found"
+      },
+      "created": "A new Flavor is created with identifier {{ param }}",
+      "updated": "A Flavor is updated with identifier {{ param }}",
+      "deleted": "A Flavor is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Flavor {{ id }}?"
+      },
+      "detail": {
+        "title": "Flavor"
+      },
+      "id": "ID",
+      "name": "Name",
+      "cake": "Cake"
+    }
+  }
+}
