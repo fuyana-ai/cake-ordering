@@ -1,0 +1,10 @@
+{
+  "cakeOrderingApplicationApp": {
+    "CakeSize": {
+      "null": "",
+      "SMALL": "SMALL",
+      "MEDIUM": "MEDIUM",
+      "LARGE": "LARGE"
+    }
+  }
+}

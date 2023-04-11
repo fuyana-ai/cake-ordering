@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20230411191322",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "flavor",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Flavor",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cake",
+      "otherEntityRelationshipName": "flavor",
+      "ownerSide": false,
+      "relationshipName": "cake",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

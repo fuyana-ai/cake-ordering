@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20230411191324",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "jhi_order",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "PENDING,PAID,READY,DECLINED,COMPLETE"
+    },
+    {
+      "fieldName": "collectionDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerPhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerAdress",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Order",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cake",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "cake",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

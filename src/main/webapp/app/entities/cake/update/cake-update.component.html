@@ -1,0 +1,112 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-cake-heading" data-cy="CakeCreateUpdateHeading" jhiTranslate="cakeOrderingApplicationApp.cake.home.createOrEditLabel">
+        Create or edit a Cake
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="cakeOrderingApplicationApp.cake.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="cakeOrderingApplicationApp.cake.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="cakeOrderingApplicationApp.cake.price" for="field_price">Price</label>
+          <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="cakeOrderingApplicationApp.cake.shape" for="field_shape">Shape</label>
+          <select class="form-control" name="shape" formControlName="shape" id="field_shape" data-cy="shape">
+            <option [ngValue]="null">{{ 'cakeOrderingApplicationApp.Shape.null' | translate }}</option>
+            <option *ngFor="let shape of shapeValues" [value]="shape">{{ 'cakeOrderingApplicationApp.Shape.' + shape | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="cakeOrderingApplicationApp.cake.cakeSize" for="field_cakeSize">Cake Size</label>
+          <select class="form-control" name="cakeSize" formControlName="cakeSize" id="field_cakeSize" data-cy="cakeSize">
+            <option [ngValue]="null">{{ 'cakeOrderingApplicationApp.CakeSize.null' | translate }}</option>
+            <option *ngFor="let cakeSize of cakeSizeValues" [value]="cakeSize">
+              {{ 'cakeOrderingApplicationApp.CakeSize.' + cakeSize | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="cakeOrderingApplicationApp.cake.flavor" for="field_flavors">Flavor</label>
+          <select
+            class="form-control"
+            id="field_flavors"
+            data-cy="flavor"
+            multiple
+            name="flavors"
+            formControlName="flavors"
+            [compareWith]="compareFlavor"
+          >
+            <option [ngValue]="flavorOption" *ngFor="let flavorOption of flavorsSharedCollection">{{ flavorOption.name }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="cakeOrderingApplicationApp.cake.color" for="field_colors">Color</label>
+          <select
+            class="form-control"
+            id="field_colors"
+            data-cy="color"
+            multiple
+            name="colors"
+            formControlName="colors"
+            [compareWith]="compareColor"
+          >
+            <option [ngValue]="colorOption" *ngFor="let colorOption of colorsSharedCollection">{{ colorOption.name }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="cakeOrderingApplicationApp.cake.icing" for="field_icing">Icing</label>
+          <select class="form-control" id="field_icing" data-cy="icing" name="icing" formControlName="icing" [compareWith]="compareIcing">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="icingOption" *ngFor="let icingOption of icingsSharedCollection">{{ icingOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

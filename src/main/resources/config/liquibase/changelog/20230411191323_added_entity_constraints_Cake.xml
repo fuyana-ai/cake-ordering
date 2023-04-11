@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Cake.
+    -->
+    <changeSet id="20230411191323-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cake_id"
+                                 baseTableName="rel_cake__flavor"
+                                 constraintName="fk_rel_cake__flavor__cake_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cake"/>
+
+        <addForeignKeyConstraint baseColumnNames="flavor_id"
+                                 baseTableName="rel_cake__flavor"
+                                 constraintName="fk_rel_cake__flavor__flavor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="flavor"/>
+
+        <addForeignKeyConstraint baseColumnNames="cake_id"
+                                 baseTableName="rel_cake__color"
+                                 constraintName="fk_rel_cake__color__cake_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cake"/>
+
+        <addForeignKeyConstraint baseColumnNames="color_id"
+                                 baseTableName="rel_cake__color"
+                                 constraintName="fk_rel_cake__color__color_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="color"/>
+
+        <addForeignKeyConstraint baseColumnNames="icing_id"
+                                 baseTableName="cake"
+                                 constraintName="fk_cake__icing_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="icing"/>
+    </changeSet>
+</databaseChangeLog>

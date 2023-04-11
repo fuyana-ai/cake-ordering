@@ -1,0 +1,67 @@
+{
+  "applications": "*",
+  "changelogDate": "20230411191323",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cake",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "shape",
+      "fieldType": "Shape",
+      "fieldValues": "ROUND,SQUARE,HEART"
+    },
+    {
+      "fieldName": "cakeSize",
+      "fieldType": "CakeSize",
+      "fieldValues": "SMALL,MEDIUM,LARGE"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Cake",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "cake",
+      "relationshipName": "order",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "flavor",
+      "otherEntityRelationshipName": "cake",
+      "ownerSide": true,
+      "relationshipName": "flavor",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "color",
+      "otherEntityRelationshipName": "cake",
+      "ownerSide": true,
+      "relationshipName": "color",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "icing",
+      "otherEntityRelationshipName": "cake",
+      "relationshipName": "icing",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

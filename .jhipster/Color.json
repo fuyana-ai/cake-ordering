@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20230411191320",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "color",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Color",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cake",
+      "otherEntityRelationshipName": "color",
+      "ownerSide": false,
+      "relationshipName": "cake",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
