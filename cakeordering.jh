@@ -1,0 +1,70 @@
+
+
+
+enum Size {
+    SMALL, MEDIUM, LARGE
+}
+enum Shape {
+    ROUND, SQUARE, HEART
+}
+
+entity Color {
+	name String
+}
+
+entity Icing {
+	name String
+}
+
+entity Flavor {
+	name String
+}
+
+entity Cake {
+	name String,
+    description String,
+    price Float,
+    shape Shape,
+    size Size
+}
+
+relationship ManyToMany {
+	Cake{flavor(name)} to Flavor{cake},
+    Cake{color(name)} to Color{cake}
+}
+
+relationship OneToMany {
+	Icing to Cake{icing},
+	
+}
+
+enum Status {
+	PENDING, PAID, READY, DECLINED, COMPLETE
+}
+
+entity Order {
+	status Status,
+    collectionDate LocalDate,
+    customerName String,
+    customerPhone String,
+    customerAdress String
+}
+relationship OneToMany {
+	Cake to Order{cake},
+	
+}
+
+
+
+
+// Set pagination options
+paginate * with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
